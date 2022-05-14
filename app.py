@@ -4,6 +4,16 @@ import random
 from dataset import *
 msgId=0
 
+def hotelDetails(z):
+    k=''
+    k+='Hotel: '+str(z[0])+'<br/>'
+    k+='Cost: '+str(z[1])+'<br/>'
+    k+='Amenities: <br/>'
+    for i in range(len(z[3])):
+        k+=z[3][i]+'<br/>'
+    k+='<br/>'
+    return(k)
+
 def chatbot_response(msg):
     global msgId
     res=''
@@ -52,6 +62,86 @@ def chatbot_response(msg):
     elif((msgId==1) and int(msg)==6):
         res+='Time to say Goodbye, Hope to see you soon <br/>Happy Travelling'
         msgId=0
+    elif(int(msg)==2 and msgId==0):
+        res+='<b>Here are some Top Recommended Restaurants</b><br/>'
+        z=random.sample(Rest[0],2)
+        res+=z[0]+'<br/>'
+        res+=z[1]+'<br/>'
+        z=random.sample(Rest[1],1)
+        res+=z[0]+'<br/>'
+        z=random.sample(Rest[2],1)
+        res+=z[0]+'<br/>'
+        res+='<br/><br/>'
+        res+='Please select your price range for better recommendation: <br/>1. Royal (Cost for two: Rs. 3500) <br/>2. Premium(Cost for two: Rs. 1500) <br/>3. Classic(Cost for two: Rs. 700) <br/>4. Return to Main Menu <br/>5. Exit'
+        msgId=2
+    elif((msgId==2) and int(msg)==1):
+        res+='<b>Here is a list of Royal Restaurants of the City</b><br/>'
+        for i in range(len(Rest[0])):
+            res+=Rest[0][i]+'<br/>'
+        res+='<br/><br/>'
+        res+='Please select your price range for better recommendation: <br/>1. Royal (Cost for two: Rs. 3500) <br/>2. Premium(Cost for two: Rs. 1500) <br/>3. Classic(Cost for two: Rs. 700) <br/>4. Return to Main Menu <br/>5. Exit'
+    elif((msgId==2) and int(msg)==2):
+        res+='<b>Here is a list of Best Premium Restaurants of the City</b><br/>'
+        for i in range(len(Rest[1])):
+            res+=Rest[1][i]+'<br/>'
+        res+='<br/><br/>'
+        res+='Please select your price range for better recommendation: <br/>1. Royal (Cost for two: Rs. 3500) <br/>2. Premium(Cost for two: Rs. 1500) <br/>3. Classic(Cost for two: Rs. 700) <br/>4. Return to Main Menu <br/>5. Exit'
+    elif((msgId==2) and int(msg)==3):
+        res+='<b>Here is a list of Top Classic Restaurants of the City</b><br/>'
+        for i in range(len(Rest[2])):
+            res+=Rest[2][i]+'<br/>'
+        res+='<br/><br/>'
+        res+='Please select your price range for better recommendation: <br/>1. Royal (Cost for two: Rs. 3500) <br/>2. Premium(Cost for two: Rs. 1500) <br/>3. Classic(Cost for two: Rs. 700) <br/>4. Return to Main Menu <br/>5. Exit'
+    elif((msgId==2) and int(msg)==4):
+        res+='Tell me What Can I do for you? <br/>1. Recommend a Tourist Spot <br/>2. Recommend some good Restaurants <br/>3. Tell some Good Hotels <br/>4. Checkout our Exclusive Packages <br/>5. Exit'
+        msgId=0
+    elif((msgId==2) and int(msg)==5):
+        res+='Time to say Goodbye, Hope to see you soon <br/>Happy Travelling'
+        msgId=0
+    elif(int(msg)==3 and msgId==0):
+        res+'Here are some Handpicked Hotels you may like:'
+        z=random.sample(Hotel[0],1)
+        res+=hotelDetails(z[0])
+        z=random.sample(Hotel[1],1)
+        res+=hotelDetails(z[0])
+        z=random.sample(Hotel[2],1)
+        res+=hotelDetails(z[0])
+        res+='<br/><br/>'
+        res+='Please Select your Hotel Price Range for better recommendation: <br/>1. Royal (Cost per Night: Rs.45,500) <br/>2. Premium(Cost per Night: Rs. 15,500) <br/>3. Classic (Cost Per Night: Rs. 5000) <br/>4. Return to Main Menu <br/>5. Say Goodbye <br/>'
+        msgId=3
+    elif((msgId==3) and int(msg)==1):
+        res+='<b>Here is a list of Royal Hotels for you:</b><br/>'
+        for i in range(len(Hotel[0])):
+            res+=hotelDetails(Hotel[0][i])+'<br/>'
+        res+='<br/><br/>'
+        res+='Please Select your Hotel Price Range for better recommendation: <br/>1. Royal (Cost per Night: Rs.45,500) <br/>2. Premium(Cost per Night: Rs. 15,500) <br/>3. Classic (Cost Per Night: Rs. 5000) <br/>4. Return to Main Menu <br/>5. Say Goodbye <br/>'
+    elif((msgId==3) and int(msg)==2):
+        res+='<b>Here is a list of Best Premium Hotels for you: </b><br/>'
+        for i in range(len(Hotel[1])):
+            res+=hotelDetails(Hotel[1][i])+'<br/>'
+        res+='<br/><br/>'
+        res+='Please Select your Hotel Price Range for better recommendation: <br/>1. Royal (Cost per Night: Rs.45,500) <br/>2. Premium(Cost per Night: Rs. 15,500) <br/>3. Classic (Cost Per Night: Rs. 5000) <br/>4. Return to Main Menu <br/>5. Say Goodbye <br/>'
+    elif((msgId==3) and int(msg)==3):
+        res+='<b>Here is a list of Top Classic Hotels for you: </b><br/>'
+        for i in range(len(Hotel[2])):
+            res+=hotelDetails(Hotel[2][i])+'<br/>'
+        res+='<br/><br/>'
+        res+='Please Select your Hotel Price Range for better recommendation: <br/>1. Royal (Cost per Night: Rs.45,500) <br/>2. Premium(Cost per Night: Rs. 15,500) <br/>3. Classic (Cost Per Night: Rs. 5000) <br/>4. Return to Main Menu <br/>5. Say Goodbye <br/>'
+    elif((msgId==3) and int(msg)==4):
+        res+='Tell me What Can I do for you? <br/>1. Recommend a Tourist Spot <br/>2. Recommend some good Restaurants <br/>3. Tell some Good Hotels <br/>4. Checkout our Exclusive Packages <br/>5. Exit'
+        msgId=0
+    elif((msgId==3) and int(msg)==5):
+        res+='Time to say Goodbye, Hope to see you soon <br/>Happy Travelling'
+        msgId=0
+
+        
+        
+    
+
+
+        
+
+
 
     return res
 

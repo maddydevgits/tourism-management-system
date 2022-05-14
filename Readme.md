@@ -3,4 +3,5 @@ Tourism Management System is a recommender application for tourists about places
 
 # Development Process
 1. Create a basic html for user to interact with chatbot :heavy_check_mark:
-2. Create recommendations for tourist spot :x:
+2. Create recommendations for tourist spot :heavy_check_mark:
+3. Create recommendations for some good restaurants :x:
