@@ -1,0 +1,8 @@
+Lakes = ["Fateh Sagar Lake", "Lake Pichola", "Udaisagar Lake", "Jaisamand Lake", "Rajsamand Lake", "Doodh Talai", "Govardhan Sagar Lake"]
+Historical = ["UDAIPUR CITY PALACE", "LAKE PALACE", "JAG MANDIR", "Sajjangarh Palace", "MONSOON PALACE", "AHAR MUSEUM", "JAGDISH TEMPLE", "SAHELIYON KI BARI",  "BAGORE KI HAVELI", "HALDIGHATI", "NAVALAKHA MAHAL", "THE CRYSTAL GALLERY", "NAGDA", "SAHASTRA BAHU TEMPLE"]
+Seasonal = ["BHARATIYA LOK KALA MANDAL(August)", "SHILPGRAM(December)" ]
+Sites = ["Bahubali Hills", "Neemach Mata Temple", "Sajjangarh Fort"]
+Rest = [["Tribute","Ambrai-Amet" ,"HaveliKabab", "MistriSteam"], ["Restaurant1559", "ADCafe RaJheel’s" ,"Rooftop Restaurant", "Rainbow Restaurant"] ,["Rainbow Restaurant", "Nataraj", "Sukhidya Chawpati"]]
+#4day pakage 2 adults
+Hotel = [[["The Leela Palace", 42430,"55,067 Rs", ["AC King Sized Bedroom", "Pool", "Free Parking", "Hot Tub", "Free Wifi", "Breakfast Included", "Lake View", "Restaurant"]],["Taj Lake Palace", 49000 ,"57,200 Rs", ["AC King Sized Bedroom", "Pool", "Free Parking", "Hot Tub", "Free Wifi", "Breakfast Included","Lake View", "Full service Spa"]]],[["Hotel Lakend", 12400, "17,700 Rs", ["AC King Sized Bedroom", "Pool", "Spa", "BathTub", "Free Wifi", "Breakfast Included", "Gym"]], ["Shiv Nivas Palace", 15340, "20,400 Rs", ["AC King Sized Bedroom", "Pool", "Game Zone", "Lake View", "Free Wifi", "Breakfast Included"]]], [["Hotel Royal Palm", 2300, "7,500 Rs", ["AC King Sized Bedroom", "Free Parking", "BathTub", "Free Wifi", "Breakfast Included"]], ["Lake Pichola Hotel", 5551, "9,500 Rs", ["AC King Sized Bedroom", "Pool", "Lake View", "Free Wifi", "Free Parking","Rooftop Restaurant"]]]]
+brag = [10000, 15000, 17000, 7000,20000]
