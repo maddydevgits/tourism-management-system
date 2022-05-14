@@ -1,8 +1,34 @@
-from tkinter.tix import Tree
 from flask import Flask,render_template,request
 import random
 from dataset import *
 msgId=0
+
+def packagesDetails(z):
+    k=''
+    k+='Hotel Details: '
+    k+=z[0]+'<br/>'
+    k+='Our Price - '+str(z[2])+'(4Night)'+'<br/>'
+    k+=' Market Price - '+str(z[1]+random.choice(brag))+"Rs (4Night)<br/>"
+    k+='Amenities: <br/>'
+    for i in range(len(z[3])):
+        k+=z[3][i]+'<br/>'
+    k+='<br/>'
+    k+='<b>Tourism Spots covered: </b><br/>'
+    k+='Lakes: <br/>'
+    for i in random.sample(Lakes,5):
+        k+=i+'<br/>'
+    k+='Historical Places:<br/>'
+    for i in random.sample(Historical,10):
+        k+=i+'<br/>'
+    k+='Hills Covered: <br/>'
+    for i in random.sample(Sites,2):
+        k+=i+'<br/>'
+    k+='Seasonal Fests (if available):  <br/>'
+    for i in Seasonal:
+        k+=i+'<br/>'
+    k+='<br/>'
+    return k
+
 
 def hotelDetails(z):
     k=''
@@ -133,16 +159,49 @@ def chatbot_response(msg):
     elif((msgId==3) and int(msg)==5):
         res+='Time to say Goodbye, Hope to see you soon <br/>Happy Travelling'
         msgId=0
-
-        
-        
-    
-
-
-        
-
-
-
+    elif(int(msg)==4 and msgId==0):
+        res+='<b>Our Best 3 Handpicked Packages are:</b> <br/><br/>'
+        z=random.sample(Hotel[0],1)
+        res+='<b>Package I - </b><br/><br/>'
+        res+=packagesDetails(z[0])
+        z=random.sample(Hotel[1],1)
+        res+='<b>Package II - </b><br/><br/>'
+        res+=packagesDetails(z[0])
+        z=random.sample(Hotel[2],1)
+        res+='<b>Package III - </b><br/><br/>'
+        res+=packagesDetails(z[0])
+        res+='<br/><br/>'
+        res+='Please select your Trip price range for better recommendation:<br/>1. Royal Pack (Cost 4Night Trip: Rs.56,000) <br/>2. Premium(Cost 4Night Trip: Rs. 18,000) <br/>3. Classic(Cost 4 Night Trip: Rs. 8,000) <br/>4. Return to Main Menu <br/>5.Exit<br/>'
+        msgId=4
+    elif(msgId==4 and int(msg)==1):
+        res+='Here is a Royal Pack <br/><br/>'
+        for i in range(len(Hotel[0])):
+            res+='<b>Package '+str(i+1)+'</b><br/>'
+            res+=packagesDetails(Hotel[0][i])
+        res+='<br/><br/>'
+        res+='Please select your Trip price range for better recommendation:<br/>1. Royal Pack (Cost 4Night Trip: Rs.56,000) <br/>2. Premium(Cost 4Night Trip: Rs. 18,000) <br/>3. Classic(Cost 4 Night Trip: Rs. 8,000) <br/>4. Return to Main Menu <br/>5.Exit<br/>'
+    elif(msgId==4 and int(msg)==2):
+        res+='Here is a Premium Pack <br/><br/>'
+        for i in range(len(Hotel[1])):
+            res+='<b>Package '+str(i+1)+'</b><br/>'
+            res+=packagesDetails(Hotel[1][i])
+        res+='<br/><br/>'
+        res+='Please select your Trip price range for better recommendation:<br/>1. Royal Pack (Cost 4Night Trip: Rs.56,000) <br/>2. Premium(Cost 4Night Trip: Rs. 18,000) <br/>3. Classic(Cost 4 Night Trip: Rs. 8,000) <br/>4. Return to Main Menu <br/>5.Exit<br/>'
+    elif(msgId==4 and int(msg)==3):
+        res+='Here is a Classic Pack <br/><br/>'
+        for i in range(len(Hotel[2])):
+            res+='<b>Package '+str(i+1)+'</b><br/>'
+            res+=packagesDetails(Hotel[2][i])
+        res+='<br/><br/>'
+        res+='Please select your Trip price range for better recommendation:<br/>1. Royal Pack (Cost 4Night Trip: Rs.56,000) <br/>2. Premium(Cost 4Night Trip: Rs. 18,000) <br/>3. Classic(Cost 4 Night Trip: Rs. 8,000) <br/>4. Return to Main Menu <br/>5.Exit<br/>'
+    elif((msgId==4) and int(msg)==4):
+        res+='Tell me What Can I do for you? <br/>1. Recommend a Tourist Spot <br/>2. Recommend some good Restaurants <br/>3. Tell some Good Hotels <br/>4. Checkout our Exclusive Packages <br/>5. Exit'
+        msgId=0
+    elif((msgId==4) and int(msg)==5):
+        res+='Time to say Goodbye, Hope to see you soon <br/>Happy Travelling'
+        msgId=0
+    elif(int(msg)==5 and (msgId)==0):
+        res+='Time to say Goodbye, Hope to see you soon Bye <br/> Happy Travelling'
     return res
 
 app=Flask(__name__)
